@@ -28,7 +28,7 @@ const bodyParser = require('body-parser');
 // let posts = [];
 // let comments = [];
 
-app.get('/', (req,res) => {
+app.get('views', (req,res) => {
   console.log('no time left')
   res.render("index",{ text: 'Bulbasar'})
 })
@@ -92,3 +92,6 @@ app.listen(port, () => {
 
 const userRouter = require('./routes/users')
 app.use('/users', userRouter)
+
+const useError = require('./utilities/error')
+app.use('/error', useError)
