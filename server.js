@@ -3,6 +3,7 @@ const pokemon = require('pokemon');
 const app = express();
 const port = (4200);
 
+
 app.set('view egnine', 'ejs');
 
 
@@ -27,17 +28,11 @@ const bodyParser = require('body-parser');
 // let posts = [];
 // let comments = [];
 
-// // GET route for all users
-// app.get('/users', (req, res) => {
-//   // Use query parameters for filtering, if appropriate
-//   const filteredUsers = filterData(users, req.query);
-//   res.json(filteredUsers);
-// });
-
 app.get('/', (req,res) => {
   console.log('no time left')
   res.render("index",{ text: 'Bulbasar'})
 })
+
 // // POST route for creating users
 // app.post('/users', (req, res) => {
 //   const newUser = req.body;
@@ -94,3 +89,6 @@ app.listen(port, () => {
 //   // For simplicity, this is a placeholder and should be adapted based on your use case
 //   return data;
 // }
+
+const userRouter = require('./routes/users')
+app.use('/users', userRouter)
